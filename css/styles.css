@@ -1,0 +1,24 @@
+.header {
+    background-color:#858AE1;
+    color:white;
+    display:flex;
+    align-items: center;
+}
+
+.item-1 {
+    font-size: 1.5em;
+
+}
+
+
+#bell {
+    width:20px;
+    height:20px;
+    border-right: solid thin #4C55ED;
+    padding-right:10px;
+}
+
+.avatar {
+    width:30px;
+    height:30px;
+}
