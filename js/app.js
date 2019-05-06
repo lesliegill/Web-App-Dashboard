@@ -1,12 +1,17 @@
-// VARIABLES //
+            //***** Variables *****//
+
 const lineGraph = document.getElementsByClassName('lineChartBox');
 const barChart = document.getElementsByClassName('barChartBox');
 const doughnutChart = document.getElementsByClassName('doughnutChartBox');
-//**********//
+
+            //******************//
 
 Chart.defaults.global.legend.display = false;
 
-// TRAFFIC CHART //
+
+
+          //***** Line Chart *****//
+
 let lineTrafficChart = new Chart(lineGraph, {
   type: 'line',
   data: {
@@ -18,12 +23,12 @@ let lineTrafficChart = new Chart(lineGraph, {
         backgroundColor: 'rgba(115, 119, 191, 0.25)',
         borderColor: '#7477bf',
         borderWidth: 1,
-        pointBorderWidth: 1.8,
+        pointBorderWidth: 1,
         pointRadius: 4,
         pointBackgroundColor: '#fff',
         pointHoverBackgroundColor: '#e7e8f9',
         lineTension: 0,
-        
+
       }
     ]
   },
@@ -31,7 +36,9 @@ let lineTrafficChart = new Chart(lineGraph, {
 
 
 
-// BAR CHART //
+          //***** Bar Chart *****//
+
+
 let barTrafficChart = new Chart(barChart, {
   type: 'bar',
   data: {
@@ -41,22 +48,23 @@ let barTrafficChart = new Chart(barChart, {
         label: '# of Hits',
         data: [50, 75, 150, 200, 350, 200, 350],
         backgroundColor: [
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)'
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)'
+
             ],
             borderColor: [
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)',
-                'rgb(75, 75, 113)'
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)',
+                'rgb(115, 119, 191)'
             ],
             borderWidth: 1
       }
@@ -75,7 +83,8 @@ let barTrafficChart = new Chart(barChart, {
 });
 
 
-// DONUT CHART //
+          //***** Doughnut Chart *****//
+
 
 let doughnutUsersChart = new Chart(doughnutChart, {
   type: 'doughnut',
@@ -102,7 +111,7 @@ Chart.defaults.global.responsive = true;
 
 
 
-// HIDE ALERT //
+        //***** Close Alert *****//
 
 const close = document.querySelector('.close');
 
@@ -111,7 +120,7 @@ close.addEventListener ('click', () => {
 });
 
 
-// MESSAGE USER //
+          //***** Message *****//
 
 let messageForm = document.querySelector('.message-user');
 
@@ -121,11 +130,11 @@ messageForm.addEventListener('submit', (e) => {
   let inputValue = messageForm.querySelector('input').value;
   let textareaValue = messageForm.querySelector('textarea').value;
   console.log(inputValue);
-  // check for entry
+    // check for entry//
   if(inputValue !== ""  && textareaValue !== ""){
-    // show the message
+    // show message//
     alert("Your message has been sent to " + inputValue + ".");
-    // clear both fields
+    // clear//
     messageForm.querySelector('input').value = "";
     messageForm.querySelector('textarea').value = "";
   }
@@ -136,30 +145,6 @@ messageForm.addEventListener('submit', (e) => {
     } else if(inputValue !== "" && textareaValue === "") {
       alert("Please enter a message for " + inputValue + ".");
     } else if(inputValue === "" && textareaValue === ""){
-      alert("You must enter a message and recipient.");
+      alert("Please enter a message and recipient.");
   }
 });
-
-
-
-
-
-// set Navigation Items to active when clicked
-const mainNavigation = document.getElementById("navigationbar");
-const trafficNavigation = document.getElementById("trafficNavigation");
-
-function setToActive(nav) {
-  const navItems = nav.getElementsByTagName("li");
-  for (let i = 0; i < navItems.length; i++) {
-    navItems[i].addEventListener("click", function() {
-      let current = nav.getElementsByClassName("active");
-      if (current.length > 0) {
-        current[0].classList.remove("active");
-      }
-      this.classList += "active";
-    });
-  }
-}
-
-setToActive(mainNavigation);
-setToActive(trafficNavigation);

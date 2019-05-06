@@ -20,10 +20,6 @@
   }
 
 
-  nav {
-    grid-area: nav;
-  }
-
   main {
   grid-area:main;
   }
@@ -68,6 +64,7 @@
   .app {
   font-size:1.3em;
   margin-right:auto;
+  padding-left:10px;
   }
 
 
@@ -75,18 +72,13 @@
     font-size: .9em;
     padding-left:10px;
     padding-right:20px;
-
   }
 
 
     #bell {
       height:25px;
       width:25px;
-      border-right: solid thin #333AFB;
       padding-right: 5px;
-
-
-
     }
 
     #bell:hover {
@@ -102,8 +94,18 @@
       width: 30px;
       height: 30px;
       border-radius:50%;
+      padding-left:5px;
+      margin-left:.5em;
 
     }
+
+
+    .divider {
+        height:30px;
+        margin-left:.7em;
+        border-right:#40406B solid thin;
+    }
+
 
 
     .dot {
@@ -111,25 +113,21 @@
       width: 5px;
       background-color: rgb(33, 231, 33);
       border-radius: 50%;
-      display: flex;
-      margin-bottom:auto;
-      margin-top:5px;
-      margin-right:.5em;
-      margin-left:.5em;
+      margin: -5px 0 10px -10px;
     }
-
 
 
 
 
   /*************** NAV ****************/
 
+
     nav {
       grid-area:nav;
       display:flex;
       justify-content:center;
       align-items:center;
-      background-color:#565E9E;
+      background-color:#40406B;
     }
 
 
@@ -228,7 +226,7 @@
       border-top: 1px solid #b2b2b2;
     }
 
-    .twitter-container {
+    .social-container {
       padding: 1rem;
       border-top: 1px solid #b2b2b2;
       border-bottom: 1px solid #b2b2b2;
@@ -247,6 +245,7 @@
     .message-container {
       border-top: 1px solid #b2b2b2;
       border-right: 1px solid #b2b2b2;
+
     }
 
     .settings-container {
@@ -260,13 +259,6 @@
 
   /*************** TRAFFIC CHART ****************/
 
-
-  .active {
-    background-color:#81c98f;
-    color:white;
-    padding:2px 5px;
-    border-radius:5px;
-  }
 
 
     .line-container {
@@ -285,12 +277,12 @@
     .time {
       display:flex;
       justify-content:flex-end;
+      align-items: center;
       padding-right:1.5em;
       width:95%;
     }
 
     .time ul {
-      display:flex;
       font-size: 1em;
 
     }
@@ -300,6 +292,16 @@
       margin: 0 5px;
       font-weight: bold;
     }
+
+
+
+    .active {
+      background-color:#81c98f;
+      color:white;
+      padding:2px 5px;
+      border-radius:5px;
+    }
+
 
 
     .card {
@@ -312,6 +314,8 @@
     .lineChartBox {
       margin-left:1em;
     }
+
+
 
 
   /*************** SOCIAL STATS ****************/
@@ -329,17 +333,21 @@
     }
 
 
-    .card-header,
-    .traffic-header {
-      text-transform: uppercase;
-      padding-bottom:10px;
-      margin-left: .5em;
-      font-size: 1em;
-      color: grey;
-    }
+  .card-header,
+  .traffic-header,
+  .message-header {
+    text-transform: uppercase;
+    padding-bottom:10px;
+    margin-left: .5em;
+    font-size: 1em;
+    color: grey;
+  }
 
-  .traffic-header {
+
+  .traffic-header,
+  .message-header {
     margin-left:1.2em;
+    padding-top:1em;
   }
 
 
@@ -401,7 +409,7 @@
   justify-content:center;
   margin:1em auto;
   width: 80%;
-  background-color:#7377bf;;
+  background-color:#7377bf;
   padding: 1em;
   color: white;
   border-radius: 5px;
@@ -412,19 +420,25 @@
 
 
 
-    .save,
-    .cancel {
-      display: flex;
-      justify-content: center;
-      width: 80%;
-      margin: 1em auto;
-      background-color:#7377bf;;
-      padding: 1em;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
+  .save,
+  .cancel {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 1em auto;
+    background-color:#40406B;
+    padding: 1em;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 
-    }
+  }
+
+.cancel {
+
+background-color:#A9ABB1;
+}
+
 
 
 
@@ -452,8 +466,8 @@
       padding: .7em;
       font-size: 1.1em;
       border-radius: 5px;
-      background-color:#cccccc;
-      color:#ffff;
+      background-color:#ecebeb;
+      color:grey;
       cursor: pointer;
     }
 
@@ -482,7 +496,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: #d6d6d6;
+      background-color: #ecebeb;
       transition: .4s;
     }
 
@@ -498,7 +512,7 @@
     }
 
     input:checked + .slider {
-      background-color: rgb(75, 75, 113);
+      background-color:#40406B;
     }
 
     input:focus + .slider {
@@ -510,13 +524,15 @@
     }
 
 
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+
     .slider.round {
       border-radius: 34px;
     }
 
-    .slider.round:before {
-      border-radius: 50%;
-    }
 
   /******** Members ********/
 
@@ -541,6 +557,7 @@
       margin-bottom: 20px;
       border-bottom: 1px solid #c7c5c5;
     }
+
 
 
     .member
@@ -647,7 +664,7 @@
   .lineChartBox {
     display:flex;
     height:auto;
-    max-height:45vh;
+    max-height:60vh;
     width:auto;
     margin:2em;
   }
@@ -748,15 +765,15 @@ nav {
 
 }
 
-header {
-  grid-area:header;
-  display:flex;
 
-}
+
+
+
 
 
 main {
   grid-area:main;
+
 }
 
 
@@ -779,6 +796,7 @@ header {
     padding:0;
     background-color:white;
     border-bottom:none;
+
   }
 
 
@@ -787,7 +805,7 @@ header {
 
 
   .search-bar-container {
-    padding-left:260px;
+    padding-left:500px;
     background-color:#DEDEE9;
     width:100%;
     border-left:#494949 solid thin;
@@ -796,8 +814,13 @@ header {
   }
 
 
+.search-bar {
+  width:60%;
+  margin-right:1em;
+}
+
   .search-icon {
-    margin-right: 3.9rem;
+    margin-right: 2rem;
 
 
   }
@@ -809,31 +832,59 @@ header {
   }
 
 
+.chart-wrapper {
+  width:99%;
+  display:flex;
+  align-content:center;
+}
+
+  .lineChartBox {
+    display:flex;
+    height:auto;
+    max-height:70vh;
+    width:30vh;
+    margin:2em;
+  }
 
 
 
   .members-wrapper {
     display:flex;
-  }
-
-
-
-  .member {
-    padding-bottom:25px;
-
 
   }
 
 
 
-.social-stats-container {
+.message-user {
+  padding-top:80px;
+}
+
+.social-stats-container,
+.members-container,
+.message-container,
+.settings-container {
   width:50%;
-  margin-top:0;
+  }
+
+
+  .btn-container {
+    display:flex;
 
   }
+
+  .save,
+  .cancel {
+    padding:10px;
+    margin:1em;
+  }
+
+
+  .settings-container {
+    margin:0;
+  }
+
 
   .members-container {
-    width:50%;
     border-top:none;
   }
 
@@ -843,16 +894,6 @@ header {
   display:flex;
 }
 
-.message-container {
-  width:50%;
 
-}
-
-
-
-
-.settings-container {
-  width:50%;
-}
 
 }
